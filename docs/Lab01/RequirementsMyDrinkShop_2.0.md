@@ -9,7 +9,14 @@
 
 Se cere realizarea unei aplicații software pentru gestionarea activității unui **drinks shop**, care să permită administrarea produselor vândute (băuturi), a ingredientelor utilizate, a rețetelor de preparare și a comenzilor plasate de clienți.
 
+Aceste date vor fi incarcate la initializarea aplicatiei.
+
 Aplicația trebuie să ofere funcționalități complete de gestiune *(adăugare, modificare, ștergere, vizualizare)*, să asigure persistența datelor în fișiere, precum și o interfață grafică intuitivă pentru utilizator.
+
+Utilizatori pot avea 2 roluri:
+
+- Administrator (care poate adauga modifica sau sterge date)
+- Utilizator simplu (care poate vizualiza produsele si sa faca comenzi)
 
 Soluția trebuie implementată respectând principiile programării orientate pe obiect și o arhitectură stratificată, care separă clar:
 
@@ -27,11 +34,23 @@ Soluția trebuie implementată respectând principiile programării orientate pe
    - adăugare produs nou  
    - modificare produs existent  
    - ștergere produs  
-   - afișare listă produse  
+   - afișare listă produse (se va afisa numele si pretul produsului respectiv) 
 
 2. **Fiecare produs trebuie să aparțină unui tip și unei categorii.**
 
-3. **Utilizatorul poate adăuga, modifica și șterge tipuri și categorii de băuturi.**
+Tipuri:
+
+- Simple
+- Premium
+
+Categorii:
+
+- Alcolice
+- Non Alcolice
+
+3. **Administratorul poate adăuga, modifica și șterge tipuri și categorii de băuturi.**
+
+3. (EXTRA) Utilizatori pot sa isi creeze un cont pentru a putea plasa comenzi si vizualiza lista de produse.
 
 4. **Aplicația trebuie să permită definirea rețetelor pentru produse:**
 
@@ -40,7 +59,7 @@ Soluția trebuie implementată respectând principiile programării orientate pe
 
 5. **Aplicația trebuie să gestioneze stocurile de ingrediente:**
 
-   - afișarea cantității disponibile  
+   - afișarea cantității disponibile (doar administratori pot vedea cantitatiile de ingrediente disponibile)
    - actualizarea stocului în urma comenzilor  
 
 6. **Aplicația trebuie să permită crearea comenzilor:**
@@ -48,11 +67,11 @@ Soluția trebuie implementată respectând principiile programării orientate pe
    - o comandă conține unul sau mai multe produse  
    - fiecare produs are asociată o cantitate  
 
-7. **Aplicația trebuie să calculeze automat conținutul unei comenzi pe baza rețetelor produselor.**
+7. **Aplicația trebuie să calculeze automat cantitatea de ingrediente utilizate pe baza rețetelor produselor.**
 
    - la finalizarea comenzii se generează bonul de casă care se salvează în format `.csv`
 
-8. **La finalul fiecărei zile** se salvează informațiile despre comenzile înregistrate și se calculează totalul zilei.  
+8. **La finalul fiecărei zile** se salvează informațiile despre comenzile înregistrate (numele, cantitatea ceruta intr-o zi si suma de bani obtinuta prin vinderea produsului) și se calculează totalul zilei.  
    Datele pot fi exportate în format **CSV**.
 
 ---
