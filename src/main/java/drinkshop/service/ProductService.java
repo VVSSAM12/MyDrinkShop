@@ -4,7 +4,6 @@ import drinkshop.domain.*;
 import drinkshop.repository.Repository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProductService {
 
@@ -28,13 +27,6 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-//        Iterable<Product> it=productRepo.findAll();
-//        ArrayList<Product> products=new ArrayList<>();
-//        it.forEach(products::add);
-//        return products;
-
-//        return StreamSupport.stream(productRepo.findAll().spliterator(), false)
-//                    .collect(Collectors.toList());
         return productRepo.findAll();
     }
 
@@ -43,16 +35,18 @@ public class ProductService {
     }
 
     public List<Product> filterByCategorie(CategorieBautura categorie) {
-        if (categorie == CategorieBautura.ALL) return getAllProducts();
+        if (categorie == CategorieBautura.ALL)
+            return getAllProducts();
         return getAllProducts().stream()
                 .filter(p -> p.getCategorie() == categorie)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<Product> filterByTip(TipBautura tip) {
-        if (tip == TipBautura.ALL) return getAllProducts();
+        if (tip == TipBautura.ALL)
+            return getAllProducts();
         return getAllProducts().stream()
                 .filter(p -> p.getTip() == tip)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
