@@ -1,4 +1,4 @@
-package drinkshop.export;
+package drinkshop.service;
 
 import drinkshop.domain.Order;
 import drinkshop.domain.OrderItem;
@@ -8,11 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
-public class CsvExporter {
-    public static void exportOrders(List<Product> products, List<Order> orders, String path) {
+public class ExporterService {
+    public void exportOrders(List<Product> products, List<Order> orders, String path) {
         try (FileWriter w = new FileWriter(path)) {
             w.write("OrderId,Product,Quantity,Price\n");
             double sum=0.0;

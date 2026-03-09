@@ -1,9 +1,6 @@
 package drinkshop.service;
 
 import drinkshop.domain.*;
-import drinkshop.export.CsvExporter;
-import drinkshop.receipt.ReceiptGenerator;
-import drinkshop.reports.DailyReportService;
 import drinkshop.repository.Repository;
 
 import java.util.List;
@@ -14,19 +11,26 @@ public class DrinkShopService {
     private final OrderService orderService;
     private final RetetaService retetaService;
     private final StocService stocService;
-    private final DailyReportService report;
+    private final ReportService report;
+    private final ReceiptService receiptService;
+    private final ExporterService exporterService;
+    private final UserService userService;
 
     public DrinkShopService(
             Repository<Integer, Product> productRepo,
             Repository<Integer, Order> orderRepo,
             Repository<Integer, Reteta> retetaRepo,
-            Repository<Integer, Stoc> stocService
+            Repository<Integer, Stoc> stocService, 
+            Repository<Integer, User> userRepo
     ) {
         this.productService = new ProductService(productRepo);
+        this.userService = new UserService(userRepo);
+        this.receiptService = new ReceiptService();
         this.orderService = new OrderService(orderRepo, productRepo);
         this.retetaService = new RetetaService(retetaRepo);
         this.stocService = new StocService(stocService);
-        this.report = new DailyReportService(orderRepo);
+        this.report = new ReportService(orderRepo);
+        this.exporterService = new ExporterService();
     }
 
     // ---------- PRODUCT ----------
@@ -68,7 +72,7 @@ public class DrinkShopService {
     }
 
     public String generateReceipt(Order o) {
-        return ReceiptGenerator.generate(o, productService.getAllProducts());
+        return receiptService.generate(o, productService.getAllProducts());
     }
 
     public double getDailyRevenue() {
@@ -76,7 +80,7 @@ public class DrinkShopService {
     }
 
     public void exportCsv(String path) {
-        CsvExporter.exportOrders(productService.getAllProducts(), orderService.getAllOrders(), path);
+        exporterService.exportOrders(productService.getAllProducts(), orderService.getAllOrders(), path);
     }
 
     // ---------- STOCK + RECIPE ----------
