@@ -2,6 +2,10 @@ package drinkshop.service;
 
 import drinkshop.domain.*;
 import drinkshop.repository.Repository;
+import drinkshop.service.validator.OrderValidator;
+import drinkshop.service.validator.ProductValidator;
+import drinkshop.service.validator.RetetaValidator;
+import drinkshop.service.validator.StocValidator;
 
 import java.util.List;
 
@@ -21,14 +25,18 @@ public class DrinkShopService {
             Repository<Integer, Order> orderRepo,
             Repository<Integer, Reteta> retetaRepo,
             Repository<Integer, Stoc> stocService, 
-            Repository<Integer, User> userRepo
+            Repository<Integer, User> userRepo,
+            ProductValidator productValidator,
+            OrderValidator orderValidator,
+            RetetaValidator retetaValidator,
+            StocValidator stocValidator
     ) {
-        this.productService = new ProductService(productRepo);
+        this.productService = new ProductService(productRepo, productValidator);
         this.userService = new UserService(userRepo);
         this.receiptService = new ReceiptService();
-        this.orderService = new OrderService(orderRepo, productRepo);
-        this.retetaService = new RetetaService(retetaRepo);
-        this.stocService = new StocService(stocService);
+        this.orderService = new OrderService(orderRepo, productRepo, orderValidator);
+        this.retetaService = new RetetaService(retetaRepo, retetaValidator);
+        this.stocService = new StocService(stocService, stocValidator);
         this.report = new ReportService(orderRepo);
         this.exporterService = new ExporterService();
     }
