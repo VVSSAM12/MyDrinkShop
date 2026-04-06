@@ -1,0 +1,18 @@
+# Maven local installation
+apache-maven-3.9.6/
+
+# Maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# Build output
+target/
+
+# IDE
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
