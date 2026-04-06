@@ -1,0 +1,119 @@
+--- PAGE 1 ---
+VVSS , Lab02:  Testare Black -Box, TestLink  Informatică – Română, 20 25-2026/II, S03/S04 
+1 Obiective  
+• Utilizarea instrumen telor de management a testelor TestLink  (vezi Tutorial TestLink ). 
+• Proiectarea testelor folosind  tehnici de testare  black -box. 
+• Utilizarea platformei de testare JUnit  5.x (vezi  Tutorial JUnit 5). 
+Cerin ţe 
+Să se realizeze următoarele task -uri: 
+Task, puncte  Descriere task  
+[TestLink]  
+4 puncte  1. În timpul laboratorului 2 , fiecare student îşi va crea  pe platforma TestLink un cont cu 
+userul de forma xyir1234 , conform indicaţiilor din Tutorial TestLink . 
+2. Fiecare student din echipă va fi asociat  (de către cadrul didactic de la laborator ) 
+proiectului Proiect TTT, corespunzător grupei TTT din care face parte studentul al cărui id 
+SCS se va utiliza la gestionarea testelor (desemnarea studentulu i se face la alegerea 
+echipei).  Se vor realiza următoarele task -uri în proiectul Proiect TTT: 
+3.1. definiţi funcţionalitatea  F01. preluată din fi șierul cu cerințele funcțion ale ale 
+problemei (secţiunea Requirement Specification ) prin crearea xyir1234_ReqSpec  
+care va conține requirement -ul xyir1234_ F01. Vom considera că enunțul problemei 
+include cerințe funcționale de forma:  
+3.1.1.  Adăugarea unui produs nou (Product), prin atributele id, nume, pret, categorie, 
+tip. 
+3.1.2.  Actualizarea  deta liilor unui produs (Product) . Se pot modifica atributele nume, 
+pret, categorie, tip.  
+3.2. definiţi planul de testare xyir1234_ BBT_TP  în cadrul proiectului Proiect TTT 
+(secţiunea Test Plan ); 
+3.3. creați suita de teste xyir1234_BBT  și adăuga ți câte un caz de testare valid şi unul 
+non-valid pentru cerinţa creată (secţiunea Test Specification ), folosind ECP şi BVA . 
+Astfel, pentru tehnicile de testare  studiat e se vor defini în Testlink doar 4 cazuri de 
+testare , i.e., câte un caz de testare valid pentru E CP şi BVA + câte un caz de testare 
+non-valid pentru E CP şi BVA.  
+3.4. asoc iaţi cazurile de testare create  la planul  de testare  xyir1234_ BBT_TP şi cerinţa 
+xyir1234_ F01; 
+3.5. generaţi d ocumentaţia aferentă din (secţiunea Test Specification , opţiunea Generate 
+Test Specification Document ) în format .docx.  
+[Unit BB T, 
+JUnit ] 
+5 puncte  Proiectaţi şi implementaţi cazuri de testare cu date de intrare valide şi non -valide folosind 
+technicile de testare ECP și BVA pentru o metodă de pe nivelul repository , service  sau ui care 
+implementează  cerinț a funcțional ă 3.1.1 sau 3.1.2. Se vor utiliza:  
+• pentru proiectarea testelor: fișierul Lab02_BBT_TCs_Form.xls ; 
+o minimum 3/4 cazuri de testare (valide şi non -valide) folosind ECP;  
+o minimum 4 cazuri de testare (2 valide, 2 non -valide) folosind BVA;  
+• pentru implementarea testelor: platforma de testare JUnit 5.x  (vezi Tutorial JUnit 5). 
+Se vor utiliza cel puțin 3 adnotări distincte, frecvent utilizate , dar  diferite de 
+următoarele: @Before/AfterAll, @Before/AfterEach, @Test.  
+• Pentru implement area testelor: se va avea in vedere utlizarea şablonul ului AAA  
+(Arrange, Act, Assert )1. 
+Se aleg doi parametri ai metodei testate  şi se definesc  condiţii asupra acestora . Condiţiile 
+(constrângerile) rezultă din specificaţii le metodei . Pentru aceşti parametri se aplică ECP şi BVA. 
+La proiectarea testelor se consideră că parametri i de intrare neinvestigaţi aici au întotdeauna 
+valori valide  (i.e., dummy objects ). 
+[Git] 
+1 punct  Se va actualiz a conţinutul r epository -ului Git cu documentele elaborate în cadrul acestei  teme : 
+• în folderul Docs/Lab02  fişierul Lab02_BBT_TCs_Form.xls ; 
+• în folderul Docs/Lab02  fişierul cu documentaţia generată în TestLink;  
+• pachetul cu teste implementate în Java folosind  tehnicile ECP şi BVA ; 
+• dacă este cazul, codul sursă modificat în urma depanării . 
+[Chestionar ] Înainte de predarea temei de laborator, studenții sunt invitați sa completeze un chestionar cu 
+ 
+1 Detalii referitoare la şablonul AAA  sunt disponibile la : 
+▪ https://semaphore.io/blog/aaa -pattern -test-automation  
+▪ https://medium.com/@rojasjimenezjosea/aaa -unit-testing -688e3e61902a  
+▪ https://thinkster.io/tutorials/blogs/the -aaa-structure -of-tests  
+--- PAGE 2 ---
+VVSS , Lab02:  Testare Black -Box, TestLink  Informatică – Română, 20 25-2026/II, S03/S04 
+2 2 puncte  întrebări referitoare la instrumentele AI utilizate pentru rezolvarea task -urilor incluse în tema 
+de laborator . Link-ul la chestionar este disponibil în postarea Link-uri importante , în Teams.  
+Fiecare student din echipă care completează chestionarul și predă tema de laborator la timp 
+primește nota 12 pentru Lab0 2. Tema de laborator predată cu întârziere este depunctată cu 
+minim 2 puncte, dar se acordă cele 2 puncte aferente chestionarului, dacă studentul l -a 
+completat anterior predării temei de lab.  
+ 
+Observaţ ii 
+[TestLink]  
+• Realizarea acestui task va începe  în timpul laboratorului 2.  
+• Userul xyir1234  asociat proiectului Proiect AAA  va avea rolul leader . 
+[Unit BBT , JUnit ] 
+• Pentru a legerea d atelor de test se vor folosi  urmă toarele tehnici : 
+a. identificarea claselor  de echivalenţă  (Equivalence Class Partitioning, ECP); 
+b. analiza  valorilor limită (Boundary Value Analysis, BVA) . 
+• În situaţia în care cazurile de testare alese evidenţiază defecte/buguri  (rezultatul aşteptat nu este 
+identic cu rezultatul obţinut în urma rulării testelor), codul sursă se va depana şi procesul de testare 
+se va relua  pentru TOATE  cazurile de testare  proiectate , i.e., re-testare + testare de regresie . 
+ 
+Timp de lucru recomandat pentru rezolvarea temei de laborator  ~ 4 ore/echipă . 
+ 
+Predarea temei de laborator  
+[TestLink]  
+• Documentaţia generată în TestLink  disponibilă în repository -ul git . 
+[Unit BBT ], [Git]  
+Se vor elabora următoarele documente:  
+[1]. fișierul Lab02_BBT_TCs_Form.xls  va fi completat cu : 
+a. datele de identi ficare ale membrilor echipei  (numele ş i prenumele, grupa);  
+b. titlul temei de laborator  şi data realizării ; 
+c. enunţ ul temei de laborator ; 
+d. pentru funcţionalitatea  F01. se vor completa tabelele din F01_ECP şi F01_BVA . Având în vedere 
+că nu toate cazurile de testare proiectate se pot implementa, în tabel ul din BBT_TCs  se vor 
+completa doar cazurile de testare pentru care există un corespondent în codul sursă de testare . 
+e. în BBT-TCs se va completa în tabelul Statistic s numărul total de teste rulate , numărul de teste 
+passed , numărul de teste failed , num ărul de bug -uri identificate, dacă au fost eliminate sau nu şi 
+statistica testelor  după re -testare  şi testare de regresie . 
+[2]. În repository -ul Git va conţine:  
+a. fişierul Lab02_BBT_TCs_Form.xls  în folderul Docs/Lab02:  
+b. codul sursă : 
+i. codul sursă al aplicaţiei testate şi depanate ; 
+ii. implementarea testel or. 
+ 
+Termen e de predare  
+ 
+Săptămâna  Tema  de laborator  Primul termen 
+de predare  Ultimul termen 
+de predare  
+S03 L02.  Testare Black -box.  TestLink  TestLink, 
+JUnit  5.x S05 S07* 
+S04 S06 S08* 
+ 
+*) Temele de laborator restante se pot preda în limita timpului disponibil.  
+) Se pot preda  cel mult două teme de laborator.  

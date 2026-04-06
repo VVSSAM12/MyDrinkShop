@@ -1,0 +1,46 @@
+﻿
+============================================================
+SHEET: Statement
+============================================================
+Rows: 26, Cols: 15
+Merged cells: ['B24:N24', 'C1:F1', 'H2:J2']
+
+Row 1:
+  C1 = 'VVSS, Info Romana, 2025-2026'
+  H1 = 'Lab02. Black-box Testing. ECP, BVA'
+Row 2:
+  H2 = 'Echipa'
+Row 3:
+  I3 = 'Numele si prenumele'
+  J3 = 'Grupa'
+Row 4:
+  H4 = 'Student 1:'
+Row 5:
+  H5 = 'Student 2:'
+Row 6:
+  H6 = 'Student 3:'
+Row 8:
+  B8 = 'Tehnicile ECP si BVA sunt exemplificate pentru problema de mai jos. Studentii vor aplica aceeasi modalitate de lucru pentru proiectul primit in Lab01.'
+Row 9:
+  B9 = '[Unit BBT]'
+Row 10:
+python : Traceback (most recent call last):
+At line:1 char:1
++ python d:\Facultate\an3\sem2\VVS\MyDrinkShop\docs\Lab02
+\read_excel.py ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback ( 
+   most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "d:\Facultate\an3\sem2\VVS\MyDrinkShop\docs\Lab02\
+read_excel.py", line 27, in <module>
+    print(item)
+  File "D:\APPs\Python31010\lib\encodings\cp1252.py", 
+line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encodi
+ng_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode 
+character '\u0163' in position 17: character maps to 
+<undefined>
