@@ -4,24 +4,23 @@ import drinkshop.domain.Order;
 import drinkshop.repository.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class ReportService {
+    private Repository<Integer, Order> OrderRepo;
 
-    private final Repository<Integer, Order> orderRepo;
-
-    public ReportService(Repository<Integer, Order> orderRepo) {
-        this.orderRepo = orderRepo;
+    public ReportService(Repository<Integer, Order> repo) {
+        this.OrderRepo = repo;
     }
 
-    /**
-     * Calculates the total revenue from all orders in the repository.
-     *
-     * @return the sum of all order totals
-     */
     public double getTotalRevenue() {
-        List<Order> orders = orderRepo.findAll();
-        return orders.stream()
-                .mapToDouble(Order::getTotal)
-                .sum();
+        return OrderRepo.findAll().stream().mapToDouble(Order::getTotal).sum();
+    }
+
+    public int getTotalOrders() {
+      List<Order> orders = StreamSupport.stream(OrderRepo.findAll().spliterator(), false)
+              .toList();
+        return OrderRepo.findAll().size();
     }
 }

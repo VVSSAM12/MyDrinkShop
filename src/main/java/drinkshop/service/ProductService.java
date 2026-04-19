@@ -4,6 +4,7 @@ import drinkshop.domain.*;
 import drinkshop.repository.Repository;
 import drinkshop.service.validator.OrderValidator;
 import drinkshop.service.validator.ProductValidator;
+import drinkshop.service.validator.ValidationException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +20,26 @@ public class ProductService {
     }
 
     public void addProduct(Product p) {
-        productValidator.validate(p);
+        String errors = "";
+        List<Product> products = productRepo.findAll();
+
+        if (p.getId() <= 0)
+            errors += "ID invalid!\n";
+
+        if (p.getNume() == null || p.getNume().isBlank())
+            errors += "Numele nu poate fi gol!\n";
+
+        if (p.getPret() <= 0)
+            errors += "Pret invalid!\n";
+        
+        for (Product p1 : products) {
+            if (p.getId() == p1.getId())
+                errors += "ID folosit deja!\n";
+        }
+
+        if (!errors.isEmpty())
+            throw new ValidationException(errors);
+        
         productRepo.save(p);
     }
 
