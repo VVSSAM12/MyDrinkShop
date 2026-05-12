@@ -5,10 +5,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <javafx.version>22.0.1</javafx.version>
-        <junit.version>5.10.0</junit.version>
+        <!-- Jenkins agent uses an older JDK; compile with Java 11 for compatibility -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <!-- JavaFX 17 works with Java 11+ -->
+        <javafx.version>17.0.12</javafx.version>
+        <junit.version>5.11.0</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
